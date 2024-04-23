@@ -1,2 +1,29 @@
-<!-- search.component.html -->
-<button (click)="fetchAmiiboData()">Fetch Amiibo Data</button>
+<br />
+
+<!-- Search Bar & Button -->
+<div class="input-group mb-3">
+    <input type="text" #searchInput class="form-control" placeholder="Enter amiibo name (e.g. Mario)">
+    <div class="input-group-append">
+        <button class="btn btn-primary" type="button" (click)="fetchAmiiboData(searchInput.value)">Search</button>
+    </div>
+</div>
+
+<br />
+
+<!-- Amiibo's -->
+<div *ngIf="amiiboData" class="search-container">
+    <div class="row">
+        <div class="col-md-4 mb-4" *ngFor="let amiibo of amiiboData.amiibo">
+            <div class="card amiibo-card">
+                <img [src]="amiibo.image" class="card-img-top" alt="Amiibo Image">
+                <div class="card-body">
+                    <h5 class="card-title">{{ amiibo.character }}</h5>
+                    <p class="card-text"><strong>Game Series:</strong> <br /> {{ amiibo.gameSeries }}</p>
+                    <p class="card-text"><strong>Amiibo Type:</strong> <br /> {{ amiibo.type }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br /><br /><br />

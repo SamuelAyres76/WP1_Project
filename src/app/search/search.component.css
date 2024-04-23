@@ -1,0 +1,22 @@
+.search-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.amiibo-card {
+    max-width: 300px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.amiibo-card:hover {
+    transform: scale(1.05);
+}
+
+.amiibo-card img {
+    width: 50%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}

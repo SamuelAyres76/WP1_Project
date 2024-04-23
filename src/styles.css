@@ -28,7 +28,6 @@
   
   .navbar {
     z-index: 1; /* Ensure navbar is above the background */
-    background-color: white; /* Initial background color */
   }
   
   /*

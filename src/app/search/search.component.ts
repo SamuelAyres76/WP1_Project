@@ -11,17 +11,18 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class SearchComponent {
+  amiiboData: any;
 
   constructor(private http: HttpClient) { }
 
-  fetchAmiiboData() {
-    // Make HTTP GET request to the API
-    this.http.get<any>('https://www.amiiboapi.com/api/amiibo/?name=captain falcon').subscribe(
+  fetchAmiiboData(searchQuery: string) {
+    // GET request to the API
+    this.http.get<any>('https://www.amiiboapi.com/api/amiibo/?name=' + searchQuery).subscribe(
       response => {
-        console.log(response); // Log the response to the console
+        this.amiiboData = response; // Store this data
       },
       error => {
-        console.error('Error fetching amiibo data:', error); // Log any errors to the console
+        console.error('Error fetching amiibo data:', error); // Error Handling.
       }
     );
   }
