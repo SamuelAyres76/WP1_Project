@@ -6,7 +6,7 @@
   height: 100%;
   background-image: url("assets/images/starry-background.png");
   background-size: 50%;
-  animation: pan 60s linear infinite;
+  animation: pan 15s linear infinite;
   z-index: -1;
 }
 

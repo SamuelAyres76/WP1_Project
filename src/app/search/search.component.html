@@ -4,7 +4,7 @@
 <div class="input-group mb-3">
     <input type="text" #searchInput class="form-control" placeholder="Enter amiibo name (e.g. Mario)">
     <div class="input-group-append">
-        <button class="btn btn-primary" type="button" (click)="fetchAmiiboData(searchInput.value)">Search</button>
+        <button class="btn btn-primary" type="button" (click)="searchInput.value.trim() !== '' && fetchAmiiboData(searchInput.value)">Search</button>
     </div>
 </div>
 
@@ -12,14 +12,20 @@
 
 <!-- Amiibo's -->
 <div *ngIf="amiiboData" class="search-container">
-    <div class="row">
-        <div class="col-md-4 mb-4" *ngFor="let amiibo of amiiboData.amiibo">
+    <div class="row w-100">
+        <div class="col-12 col-md-4 mb-4" *ngFor="let amiibo of amiiboData.amiibo">
             <div class="card amiibo-card">
+                <br/>
                 <img [src]="amiibo.image" class="card-img-top" alt="Amiibo Image">
                 <div class="card-body">
-                    <h5 class="card-title">{{ amiibo.character }}</h5>
+                    <h5 class="card-title">{{ amiibo.name }}</h5>
+                    <p class="card-text"><i><strong>ID:</strong> {{ amiibo.head }} - {{ amiibo.tail }}</i></p>
                     <p class="card-text"><strong>Game Series:</strong> <br /> {{ amiibo.gameSeries }}</p>
                     <p class="card-text"><strong>Amiibo Type:</strong> <br /> {{ amiibo.type }}</p>
+                    <!-- Star icon for favorite -->
+                    <span class="star-icon" (click)="addToFavorites(amiibo.name, amiibo.head, amiibo.tail)">
+                        <i class="fa fa-star"></i>
+                    </span>
                 </div>
             </div>
         </div>

@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/wp1-project/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

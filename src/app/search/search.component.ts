@@ -15,6 +15,12 @@ export class SearchComponent {
 
   constructor(private http: HttpClient) { }
 
+  addToFavorites(name: string, head: string, tail: string) {
+    const favoriteAmiibo = { name, head, tail };
+    console.log('Favorite Amiibo:', favoriteAmiibo);
+    // You can store favoriteAmiibo to local storage or send it to backend for storage
+}
+
   fetchAmiiboData(searchQuery: string) {
     // GET request to the API
     this.http.get<any>('https://www.amiiboapi.com/api/amiibo/?name=' + searchQuery).subscribe(
