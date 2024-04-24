@@ -1,3 +1,4 @@
+/* My Moving Background */
 .background {
   position: fixed;
   top: 0;
@@ -6,7 +7,7 @@
   height: 100%;
   background-image: url("assets/images/starry-background.png");
   background-size: 50%;
-  animation: pan 15s linear infinite;
+  animation: pan 25s linear infinite;
   z-index: -1;
 }
 
@@ -20,6 +21,7 @@
   }
 }
 
+/* Other CSS */
 .logo-img {
   width: 40px;
   margin-right: 10px;
