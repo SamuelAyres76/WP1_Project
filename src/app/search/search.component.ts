@@ -10,26 +10,34 @@ import { HttpClient } from '@angular/common/http';
   imports: [ CommonModule ]
 })
 
-export class SearchComponent {
+export class SearchComponent 
+{
   amiiboData: any;
 
   constructor(private http: HttpClient) { }
 
-  addToFavorites(name: string, head: string, tail: string) {
+  // Add to Favorites.
+  addToFavorites(name: string, head: string, tail: string) 
+  {
     const favoriteAmiibo = { name, head, tail };
     console.log('Favorite Amiibo:', favoriteAmiibo);
-    // You can store favoriteAmiibo to local storage or send it to backend for storage
-}
+  }
 
-  fetchAmiiboData(searchQuery: string) {
-    // GET request to the API
-    this.http.get<any>('https://www.amiiboapi.com/api/amiibo/?name=' + searchQuery).subscribe(
-      response => {
-        this.amiiboData = response; // Store this data
-      },
-      error => {
-        console.error('Error fetching amiibo data:', error); // Error Handling.
-      }
+  // My GET request to the API
+  fetchAmiiboData(searchQuery: string) 
+  {
+    this.http.get<any>('https://www.amiiboapi.com/api/amiibo/?name=' + searchQuery).subscribe
+    (
+      response => 
+        {
+          // Store the amiibo data.
+          this.amiiboData = response;
+        },
+      error => 
+        {
+          // Error Handling.
+          console.error('Error fetching amiibo data:', error);
+        }
     );
   }
 }
